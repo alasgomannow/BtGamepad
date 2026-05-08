@@ -77,9 +77,9 @@
         android:layout_marginEnd="11dp"
         android:layout_marginBottom="67dp"
         android:background="@drawable/button_round"
+        android:foreground="@drawable/ps_circle"
         android:tag="1"
-        android:text="◯"
-        android:textSize="24sp"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/right_thumbstick" />
 
@@ -93,7 +93,6 @@
         android:foreground="@drawable/ps_triangle"
         android:tag="3"
         android:text=""
-        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/a_button"
         app:layout_constraintEnd_toStartOf="@+id/right_thumbstick" />
 
@@ -104,9 +103,9 @@
         android:layout_marginEnd="66dp"
         android:layout_marginBottom="67dp"
         android:background="@drawable/button_round"
+        android:foreground="@drawable/ps_square"
         android:tag="2"
-        android:text="□"
-        android:textSize="24sp"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/b_button" />
 
@@ -117,9 +116,9 @@
         android:layout_marginEnd="77dp"
         android:layout_marginBottom="1dp"
         android:background="@drawable/button_round"
+        android:foreground="@drawable/ps_cross"
         android:tag="0"
-        android:text="✕"
-        android:textSize="24sp"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/right_thumbstick" />
 
