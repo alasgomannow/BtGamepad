@@ -16,7 +16,7 @@ class GamepadActivity : AppCompatActivity(), ThumbstickListener, SensorEventList
     private lateinit var binding: ActivityGamepadBinding
 
     private lateinit var sensorManager: SensorManager
-    private lateinit var sensor: Sensor
+    private var sensor: Sensor? = null
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +33,11 @@ class GamepadActivity : AppCompatActivity(), ThumbstickListener, SensorEventList
         makeFullscreen(window)
 
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
-        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GAME_ROTATION_VECTOR)
+        sensor = if (Preferences.gyroEnabled) {
+            sensorManager.getDefaultSensor(Sensor.TYPE_GAME_ROTATION_VECTOR)
+        } else {
+            null
+        }
 
         val buttonOtl = OnTouchListener {v, event->
             if (event.action == MotionEvent.ACTION_DOWN) {
@@ -138,27 +142,26 @@ class GamepadActivity : AppCompatActivity(), ThumbstickListener, SensorEventList
     private val rotationMatrix = FloatArray(9)
     private val orientation = FloatArray(3)
     override fun onSensorChanged(event: SensorEvent?) {
-        if (event != null) {
-            SensorManager.getRotationMatrixFromVector(rotationMatrix, event.values)
-            SensorManager.getOrientation(rotationMatrix, orientation)
+        if (!Preferences.gyroEnabled || event == null) return
+        SensorManager.getRotationMatrixFromVector(rotationMatrix, event.values)
+        SensorManager.getOrientation(rotationMatrix, orientation)
 
-            var rotX = -(Constants.logicalMaximum * orientation[1] * Preferences.gyroSensitivity).toInt()
-            var rotY = -(Constants.logicalMaximum * orientation[2] * Preferences.gyroSensitivity).toInt()
+        var rotX = -(Constants.logicalMaximum * orientation[1] * Preferences.gyroSensitivity).toInt()
+        var rotY = -(Constants.logicalMaximum * orientation[2] * Preferences.gyroSensitivity).toInt()
 
-            if (rotX > Constants.logicalMaximum) rotX = Constants.logicalMaximum
-            else if (rotX < Constants.logicalMinimum) rotX = Constants.logicalMinimum
-            if (rotY > Constants.logicalMaximum) rotY = Constants.logicalMaximum
-            else if (rotY < Constants.logicalMinimum) rotY = Constants.logicalMinimum
+        if (rotX > Constants.logicalMaximum) rotX = Constants.logicalMaximum
+        else if (rotX < Constants.logicalMinimum) rotX = Constants.logicalMinimum
+        if (rotY > Constants.logicalMaximum) rotY = Constants.logicalMaximum
+        else if (rotY < Constants.logicalMinimum) rotY = Constants.logicalMinimum
 
-            GamepadInputWrapper.gyroUpdate(rotX, rotY)
-        }
+        GamepadInputWrapper.gyroUpdate(rotX, rotY)
     }
 
     override fun onAccuracyChanged(p0: Sensor?, p1: Int) {}
 
     override fun onResume() {
         super.onResume()
-        if (Preferences.gyroEnabled) {
+        if (Preferences.gyroEnabled && sensor != null) {
             sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_GAME)
         }
     }
