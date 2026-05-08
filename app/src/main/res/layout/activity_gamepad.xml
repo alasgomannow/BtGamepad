@@ -26,7 +26,7 @@
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
         android:background="@drawable/button_round_edge"
-        android:text="LT"
+        android:text="L2"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -65,7 +65,7 @@
         android:layout_marginEnd="1dp"
         android:background="@drawable/button_round_edge"
         android:tag="5"
-        android:text="RB"
+        android:text="R1"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/right_trigger" />
@@ -78,7 +78,7 @@
         android:layout_marginBottom="67dp"
         android:background="@drawable/button_round"
         android:tag="1"
-        android:text="B"
+        android:text="○"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/right_thumbstick" />
@@ -91,7 +91,7 @@
         android:layout_marginBottom="66dp"
         android:background="@drawable/button_round"
         android:tag="3"
-        android:text="Y"
+        android:text="△"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/a_button"
         app:layout_constraintEnd_toStartOf="@+id/right_thumbstick" />
@@ -104,7 +104,7 @@
         android:layout_marginBottom="67dp"
         android:background="@drawable/button_round"
         android:tag="2"
-        android:text="X"
+        android:text="□"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/b_button" />
@@ -117,7 +117,7 @@
         android:layout_marginBottom="1dp"
         android:background="@drawable/button_round"
         android:tag="0"
-        android:text="A"
+        android:text="✕"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/right_thumbstick" />
@@ -129,7 +129,7 @@
         android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
         android:background="@drawable/button_round_edge"
-        android:text="RT"
+        android:text="R2"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
