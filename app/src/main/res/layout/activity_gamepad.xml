@@ -78,7 +78,7 @@
         android:layout_marginBottom="67dp"
         android:background="@drawable/button_round"
         android:tag="1"
-        android:text="○"
+        android:text="◯"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/right_thumbstick" />
