@@ -1,4 +1,4 @@
-name: Android Build
+name: Android Build ps2
 
 on:
   workflow_dispatch:
