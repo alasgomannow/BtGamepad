@@ -83,13 +83,11 @@ class Thumbstick @JvmOverloads constructor(context: Context, attributeSet: Attri
         backgroundRadius = min * 0.375f
     }
 
-    public override fun onDraw(canvas: Canvas?) {
-        if (canvas != null) {
-            paint.color = backgroundColor.toArgb()
-            canvas.drawCircle(centerX, centerY, backgroundRadius, paint)
-            paint.color = knobColor.toArgb()
-            canvas.drawCircle(posX, posY, knobRadius, paint)
-        }
+    public override fun onDraw(canvas: Canvas) {
+        paint.color = backgroundColor.toArgb()
+        canvas.drawCircle(centerX, centerY, backgroundRadius, paint)
+        paint.color = knobColor.toArgb()
+        canvas.drawCircle(posX, posY, knobRadius, paint)
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -149,7 +147,7 @@ class Thumbstick @JvmOverloads constructor(context: Context, attributeSet: Attri
         return false
     }
     override fun onScroll(
-        motionEvent: MotionEvent,
+        motionEvent: MotionEvent?,
         motionEvent1: MotionEvent,
         v: Float,
         v1: Float,
@@ -158,7 +156,7 @@ class Thumbstick @JvmOverloads constructor(context: Context, attributeSet: Attri
     }
     override fun onLongPress(motionEvent: MotionEvent) {}
     override fun onFling(
-        motionEvent: MotionEvent,
+        motionEvent: MotionEvent?,
         motionEvent1: MotionEvent,
         v: Float,
         v1: Float,
