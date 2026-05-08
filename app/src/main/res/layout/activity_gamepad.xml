@@ -14,7 +14,7 @@
         android:layout_marginTop="11dp"
         android:background="@drawable/button_round_edge"
         android:tag="4"
-        android:text="LB"
+        android:text="L1"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/left_trigger" />
